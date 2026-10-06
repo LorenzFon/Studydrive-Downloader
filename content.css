@@ -1,0 +1,74 @@
+.studydrive-downloader-entry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    margin-left: 8px;
+    padding: 7px;
+    border: 0;
+    border-radius: 8px;
+    background: #edf8f1;
+    color: #177245;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.studydrive-downloader-entry:hover:enabled {
+    background: #d4ecdf;
+}
+
+.studydrive-downloader-entry:focus-visible {
+    outline: 2px solid #177245;
+    outline-offset: 2px;
+}
+
+.studydrive-downloader-entry:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.studydrive-downloader-entry svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.studydrive-downloader-entry[data-state="busy"] svg {
+    animation: studydrive-downloader-spin 1s linear infinite;
+}
+
+.studydrive-downloader-entry[data-state="error"] {
+    color: #b42318;
+    background: #fef3f2;
+}
+
+.studydrive-downloader-notice {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2147483647;
+    max-width: 360px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: #b42318;
+    color: white;
+    box-shadow: 0 4px 16px #0002;
+    font: 14px/1.5 system-ui, sans-serif;
+}
+
+@keyframes studydrive-downloader-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .studydrive-downloader-entry[data-state="busy"] svg {
+        animation: none;
+    }
+}
